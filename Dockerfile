@@ -28,4 +28,10 @@ RUN /usr/hdp/current/hive-server2/bin/schematool -dbType derby -initSchema 2> /d
 VOLUME ["/var/lib/hive","/user/hive"]
 
 EXPOSE 10000/tcp
-CMD ["/usr/hdp/current/hive-server2/bin/hive.distro","--service","hiveserver2","--hiveconf","hive.root.logger=INFO,console"]
+CMD [ "/usr/hdp/current/hive-server2/bin/hive.distro", \
+      "--service","hiveserver2", \      
+      "--hiveconf","hive.server2.authentication=NONE", \
+      "--hiveconf","hive.server2.enable.doA=false", \      
+      "--hiveconf","hive.server2.transport.mode=BINARY", \
+      "--hiveconf","hive.root.logger=INFO,console" \
+      ]
