@@ -23,15 +23,17 @@ RUN chmod 775 /user/hive
 USER hive:hive
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV HOME=/var/lib/hive
+ENV HADOOP_HEAPSIZE=1024
 WORKDIR ${HOME}
 RUN /usr/hdp/current/hive-server2/bin/schematool -dbType derby -initSchema 2> /dev/null
 VOLUME ["/var/lib/hive","/user/hive"]
 
 EXPOSE 10000/tcp
-CMD [ "/usr/hdp/current/hive-server2/bin/hive.distro", \
-      "--service","hiveserver2", \      
+CMD [ "/usr/hdp/current/hive-server2/bin/hiveserver2", \
       "--hiveconf","hive.server2.authentication=NONE", \
       "--hiveconf","hive.server2.enable.doA=false", \      
       "--hiveconf","hive.server2.transport.mode=BINARY", \
+      "--hiveconf","fs.hdfs.impl.disable.cache=true", \
+      "--hiveconf","fs.file.impl.disable.cache=true", \
       "--hiveconf","hive.root.logger=INFO,console" \
       ]
