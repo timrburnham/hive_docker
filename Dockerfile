@@ -16,9 +16,9 @@ ADD start.sh /var/lib/hive/
 RUN mkdir -p /tmp/hive &&\
     chown hive:hive /tmp/hive &&\
     chmod 777 /tmp/hive &&\
-    mkdir -p /usr/hive &&\
-    chown hive:hive /usr/hive &&\
-    chmod 775 /usr/hive &&\
+    mkdir -p /user/hive &&\
+    chown hive:hive /user/hive &&\
+    chmod 775 /user/hive &&\
     chown hive:hive /var/lib/hive/start.sh &&\
     chmod 777 /var/lib/hive/start.sh
 
@@ -29,7 +29,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
 WORKDIR ${HOME}
 
 RUN /usr/hdp/current/hive-server2/bin/schematool -dbType derby -initSchema 2> /dev/null
-VOLUME ["/usr/hive"]
+VOLUME ["/var/lib/hive", "/user/hive"]
 
 EXPOSE 10000/tcp
 CMD ["./start.sh"]
