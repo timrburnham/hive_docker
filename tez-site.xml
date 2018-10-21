@@ -1,0 +1,16 @@
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>fs.default.name</name>
+        <value>file:///</value>
+    </property>
+    <property>
+        <name>tez.local.mode</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>tez.runtime.optimize.local.fetch</name>
+        <value>true</value>
+    </property>
+</configuration>

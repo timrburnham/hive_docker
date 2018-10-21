@@ -43,8 +43,18 @@
   </property>
 
   <property>
+    <name>hive.execution.engine</name>
+    <value>tez</value>
+    <description>Enable TEZ instead of MR.</description>
+  </property>
+
+  <property>
     <name>fs.file.impl.disable.cache</name>
     <value>true</value>
     <description>Disables local file system caching as it causes a memory leak.</description>
+  </property>
+  <property>
+    <name>hive.user.install.directory</name>
+    <value>${fs.defaultFS}/user/</value>
   </property>
 </configuration>

@@ -12,11 +12,10 @@ RUN     apt-get update &&\
         openjdk-8-jdk \
         hive
 
-COPY [\
-        "log4j.properties","/etc/hive/conf",\
-        "hive-site.xml","/etc/hive/conf/",\
-        "start.sh","/var/lib/hive/"\
-        ]
+COPY hive-site.xml hive-log4j.properties /etc/hive/conf/
+COPY tez-site.xml /etc/tez/conf/
+COPY start.sh /var/lib/hive/
+
 RUN     mkdir -p /tmp/hive &&\
         chown hive:hive /tmp/hive &&\
         chmod 777 /tmp/hive &&\
