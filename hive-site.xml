@@ -31,12 +31,6 @@
   </property>
 
   <property>
-    <name>hive.hwi.war.file</name>
-    <value>/usr/lib/hive/lib/hive-hwi-1.2.1000.2.6.5.0-292.war</value>
-    <description>This is the WAR file with the jsp content for Hive Web Interface</description>
-  </property>
-
-  <property>
     <name>hive.server2.transport.mode</name>
     <value>BINARY</value>
     <description>Sets transport mode to binary.</description>
