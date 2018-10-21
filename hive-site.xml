@@ -43,10 +43,11 @@
   </property>
 
   <property>
-    <name>fs.file.impl.disable.cache</name>
-    <value>true</value>
-    <description>Disables local file system caching as it causes a memory leak.</description>
+    <name>hive.query.result.fileformat</name>
+    <value>SequenceFile</value>
+    <description>Fixes issue with values include new lines in queries.</description>
   </property>
+
   <property>
     <name>hive.user.install.directory</name>
     <value>${fs.defaultFS}/user/</value>
