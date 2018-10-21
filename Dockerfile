@@ -28,7 +28,8 @@ RUN     mkdir -p /tmp/hive &&\
 USER hive:hive
 WORKDIR /var/lib/hive
 
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV     JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
+        HADOOP_HEAPSIZE=1024
 RUN /usr/hdp/current/hive-server2/bin/schematool -dbType derby -initSchema 2> /dev/null
 VOLUME ["/var/lib/hive", "/user/hive"]
 
